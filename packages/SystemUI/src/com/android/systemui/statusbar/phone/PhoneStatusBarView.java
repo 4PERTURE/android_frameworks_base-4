@@ -42,6 +42,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.android.systemui.BatteryMeterView;
 import com.android.systemui.Dependency;
 import com.android.systemui.EventLogTags;
 import com.android.systemui.R;
@@ -72,7 +73,7 @@ public class PhoneStatusBarView extends PanelBar {
             }
         }
     };
-    private DarkReceiver mBattery;
+    private BatteryMeterView mBattery;
     private int mLastOrientation;
     private int mRotationOrientation;
     @Nullable
@@ -105,6 +106,7 @@ public class PhoneStatusBarView extends PanelBar {
     @Override
     public void onFinishInflate() {
         mBattery = findViewById(R.id.battery);
+        mBattery.setUserHideable(true);
         mCutoutSpace = findViewById(R.id.cutout_space_view);
         mCenterIconSpace = findViewById(R.id.centered_icon_area);
 

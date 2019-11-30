@@ -75,6 +75,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
     private static final String VISIBLE_BY_USER = "visible_by_user";
     private static final String SHOW_SECONDS = "show_seconds";
     private static final String VISIBILITY = "visibility";
+    private static final String SLOT_CLOCK = "clock";
 
     private final CurrentUserTracker mCurrentUserTracker;
     private int mCurrentUserId;
@@ -314,7 +315,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
             updateShowSeconds();
         } else {
             setClockVisibleByUser(!StatusBarIconController.getIconBlacklist(newValue)
-                    .contains("clock"));
+                    .contains(SLOT_CLOCK));
             updateClockVisibility();
         }
     }
